@@ -1,10 +1,13 @@
+<!--Vue가 실행되기 전에 브라우저에서 가장 먼저 로드되는 기본 HTML문서에
+Vue가 들어와 실제 콘텐츠를 채움.-->
+
 <!DOCTYPE html>
 <html lang="">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" /> <!--탭의 작은아이콘 =파비콘-->
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
@@ -21,3 +24,10 @@
 </html>
 
 <!--정적파일, HTML은 public폴더에-->
+
+
+<!-- 흐름
+ 1) 브라우저가 가장 먼저 index.html 읽음 => 화면에 보이는것 xx 
+ 2) main.js 실행 -> App.veu를 <div id="app"> 마운트
+ 3) App.vue의 라우터로 각 페이지 연결. 
+ -->
