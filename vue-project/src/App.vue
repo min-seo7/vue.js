@@ -3,7 +3,11 @@
     <router-link to="/">Home</router-link> |
     <!--라우터 정보 (router -index.js)에 link 정보에 있음. -->
     <router-link to="/about">About</router-link> |
-    <router-link to="/data">Data link</router-link>
+    <router-link to="/data">Data link</router-link> |
+    <router-link to="/dataAttr">DataAtrr link</router-link> |
+    <router-link to="/dataList">DataList link</router-link> |
+    <router-link to="/eventClick">Event Click</router-link> |
+    <router-link to="/showVue">Show Vue</router-link>
   </nav>
   <router-view />
 </template>

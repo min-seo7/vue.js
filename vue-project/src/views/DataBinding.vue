@@ -29,10 +29,12 @@
     />
   </p>
   <p>
-    <label><input type="radio" v-model="picked" /></label>
+    <label><input type="radio" v-model="picked" />what??</label>
+    <label><input type="radio" v-model="picked" />who??</label>
+    <label><input type="radio" v-model="picked" />when??</label>
   </p>
 
-  <p>{{ valueModel }}, {{ numberModel }}, {{ city }}</p>
+  <p>{{ valueModel }}, {{ numberModel }}, {{ city }}, {{ picked }}</p>
   <!--양방향특징, valueModel이 바뀌면 반영됨. -->
 </template>
 
@@ -48,6 +50,7 @@ export default {
       numberModel: 10, //지정해줘도 값이 변경되면 변경된 값을 반영해줌. (양방향) data- view - viewmodel ==>
       city: "042",
       checking: "yes",
+      picked: "what??",
     };
   },
 };
