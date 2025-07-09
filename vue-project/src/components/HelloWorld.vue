@@ -1,5 +1,4 @@
 <template>
-  <!--화면에 보여지는 HTML영역-->
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>

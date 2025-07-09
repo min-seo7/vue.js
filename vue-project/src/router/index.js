@@ -6,6 +6,13 @@ import DataBindingAttr from "../views/DataBindingAttr.vue";
 import DataBindingList from "../views/DataBindingList.vue";
 import EventClick from "../views/EventClick.vue";
 import ShowVue from "../views/ShowVue.vue";
+import Computed from "../views/ComputedView.vue";
+import WatchView from "../views/WatchView.vue";
+import TodoView from "../views/TodoView.vue";
+import Nested from "../views/NestedComponent.vue";
+import Parent from "../views/ParentComponent.vue";
+import Parent2 from "../views/ParentComponent2.vue";
+import TodoUseCompo from "../views/TodoListParentComponent.vue";
 
 const routes = [
   //라우터정보
@@ -47,6 +54,41 @@ const routes = [
     path: "/showVue",
     name: "showVue",
     component: ShowVue,
+  },
+  {
+    path: "/Computed",
+    name: "Computed",
+    component: Computed,
+  },
+  {
+    path: "/WatchView",
+    name: "WatchView",
+    component: WatchView,
+  },
+  {
+    path: "/TodoView",
+    name: "TodoView",
+    component: TodoView,
+  },
+  {
+    path: "/Nested",
+    name: "Nested",
+    component: Nested,
+  },
+  {
+    path: "/Parent",
+    name: "Parent",
+    component: Parent,
+  },
+  {
+    path: "/Parent2",
+    name: "Parent2",
+    component: Parent2,
+  },
+  {
+    path: "/TodoUseCompo",
+    name: "TodoUseCompo",
+    component: TodoUseCompo,
   },
 ];
 

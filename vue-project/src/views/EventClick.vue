@@ -2,6 +2,7 @@
   <h3>Event</h3>
   <P :key="i" v-for="(num, i) in list">
     <button v-on:click="ClickFnc(num)">이벤트클릭</button>
+    <!--v-on:click은 @Click 축약형으로 사용가능. -->
   </P>
 </template>
 

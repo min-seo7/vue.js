@@ -1,3 +1,5 @@
+<!--속성(attribute)바인딩 v-bind-->
+
 <template>
   <h3>DataBindingAttr.vue</h3>
   <p>attribude 바인딩하기.</p>

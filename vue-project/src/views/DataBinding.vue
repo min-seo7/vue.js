@@ -2,12 +2,12 @@
 
 <template>
   <!--html영역-->
-  <!--텍스트는 v-text를 사용.-->
+  <!--텍스트는 1) {{}} 2) v-text를 사용.-->
   <h1>Hello, {{ msg }}</h1>
   <h1 v-text="msg"></h1>
   <!--html코드는 v-html을 사용.-->
   <h2 v-html="htmlStr"></h2>
-  <!--input은 v-model을 사용.-->
+  <!--input[checkbox, radio 등등]은 v-model을 사용.-->
   <p><input type="text" v-model="valueModel" /></p>
   <p><input type="number" v-model.number="numberModel" /></p>
   <p>

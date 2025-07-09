@@ -1,5 +1,6 @@
 <template>
   <h3>List 랜더링</h3>
+  <!--조건문 v-if// v-else-->
   <div v-if="productList.length == 0">
     <!--데이터 유무에 따른 출력여부 조건문으로!-->
     <span>** No Data **</span>
@@ -16,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <!--productList배열반복출력-->
+        <!--productList배열반복출력 i는 index값 -->
         <tr v-bind:key="i" v-for="(product, i) in productList">
           <td>{{ product.product_name }}</td>
           <td>{{ product.price }}</td>
