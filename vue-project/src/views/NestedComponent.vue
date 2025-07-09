@@ -2,11 +2,11 @@
 <template>
   <h3>상위컴포넌트(Nested) = 하위컴포넌트(PageTitle)</h3>
   <PageTitle
-    v-bind:title="titleMsg"
+    v-bind:title="titleMsg" 
     v-bind:likes="likeCnt"
     v-bind:isOk="Okval"
     v-bind:members="memberList"
-  >
+  > <!--v-bind는 하위영역과 binding되어 하위컴포넌트에서 출력됨.-->
     <template v-slot><p>slot의 내용입니다.</p></template>
     <template v-slot:header><p>Header의 slot입니다.</p></template>
     <template v-slot:footer><p>Footer의 slot입니다.</p></template>
