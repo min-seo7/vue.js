@@ -21,7 +21,7 @@
 </template>
 
 <script>
-//import axios from "axios";
+import axios from "axios";
 
 export default {
   data() {
@@ -30,9 +30,18 @@ export default {
       todoList: [], //DB와 연결해서 todoList
     };
   },
+   mounted() {
+    axios({
+      method: "get",
+      url: "http://localhost:3000/todoList",
+    }).then((result) => {
+      this.todoList = result.data;
+      console.log(this.todoList);
+    });
+  },
   methods: {
     checked(no) {
-      //li 클릭시 발생(v-on:click)시 chk가 true가 되어 취소선.
+      //li 클릭시 발생(v-on:click)시 chk가 true가 되어 취소선. html에 작성된  v-bind:class="{ checked: todo.chk }로 css스타일 적용됨.
       for (let todo of this.todoList) {
         if (todo.id == no) {
           todo.chk = !todo.chk; //true&false로 토글
@@ -46,8 +55,23 @@ export default {
       this.todoList.push(todo); // 배열에 추가.
     },
     removeTodo(no) {
-      //배열내장함수 filter를 사용해서 조건에 만족하는 새로운 배열을 반환.
-      this.todoList = this.todoList.filter((item) => item.id != no); // 배열의 요소(item) 중 전달받은 id를 제외하고 새로운 배열반환.
+      axios({
+        method: "delete",
+        url: "http://localhost:3000/todo/" + no,
+      })
+        .then((result) => {
+          console.log(result);
+          // 삭제요청의 성공/실패.
+          if (result.data.errno) {
+            alert("처리실패");
+            return;
+          }
+          // 배열에서 제거하기.
+          this.todoList = this.todoList.filter((item) => item.id != no);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };

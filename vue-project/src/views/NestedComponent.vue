@@ -1,6 +1,6 @@
 <!--PageTitle.vue로 전달-->
 <template>
-  <h3>상위컴포넌트 = 하위컴포넌트(PageTitle)</h3>
+  <h3>상위컴포넌트(Nested) = 하위컴포넌트(PageTitle)</h3>
   <PageTitle
     v-bind:title="titleMsg"
     v-bind:likes="likeCnt"

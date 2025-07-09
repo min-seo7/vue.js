@@ -10,7 +10,7 @@
 <script>
 export default {
   props: {
-    todos: {
+    todos: { 
       type: Array,
       required: true,
     },

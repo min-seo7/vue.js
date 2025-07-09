@@ -1,8 +1,8 @@
-<!--최상위 컴포넌트 homeView-->
+<!--상위 homeView/하위 helloworld-->
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="환영합니다!! " />
+    <HelloWorld msg="환영합니다!! " />  
     <!--하위 컴포넌트-->
   </div>
 </template>

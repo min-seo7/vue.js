@@ -17,7 +17,7 @@ import TodoUseCompo from "../views/TodoListParentComponent.vue";
 const routes = [
   //라우터정보
   {
-    path: "/",
+    path: "/",    
     name: "home",
     component: HomeView, //위에 import된 것!
   },
