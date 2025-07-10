@@ -2,10 +2,12 @@
 import { createApp } from "vue"; //Vue앱을 생성[createApp()함수사용]하기 위해 import
 //경로: ./는 현재파일이 있는 위치를 기준으로 한 경로.
 import App from "./App.vue"; ///app.vue를 루트 컴포넌트로 사용 = 전체 앱의 기본 틀(뼈대)
-import router from "./router"; //라우터 연결.
+import router from "./router"; //라우터 연결(라우팅정보).
+import store from "./store/index.js"; //저장소 import
 
 const app = createApp(App); //App.vue의 컴포넌트 객체생성.
 app.use(router);
+app.use(store);
 app.mount("#app"); //index.html에 #app정의되어 있음.
 
 //1) App.vue를 루트검포넌트로 Vue 앱 생성

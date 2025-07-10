@@ -1,78 +1,47 @@
-<!--데이터를 핸들링해서 화면에 보여질 수 있도록.-->
+<!--todoList의 요소를 저장소에 저장 & 사용!-->
 <template>
-  <h3>Todo</h3>
+  <h3>Vuex 사용하기// 기존 Todoview을 공통저장소 사용!</h3>
   <div id="myDIV" class="header">
-    <h2>My To Do List</h2>
-    <input type="text" id="myInput" v-model="msg" placeholder="Title..." />
-    <span onclick="newElement()" class="addBtn" @click="addTodo()">Add</span>
+    <h2 style="margin: 5px">My To Do List</h2>
+    <form @submit.prevent="addNewTodo">
+      <!--submit의 기본기능을 prevent로 차단-->
+      <input type="text" v-model="msg" placeholder="Title..." />
+      <button type="submit">추가</button>
+    </form>
   </div>
 
   <ul id="myUL">
-    <li
-      v-bind:key="todo.id"
-      v-for="todo in todoList"
-      v-bind:class="{ checked: todo.chk }"
-      @click="checked(todo.id)"
-    >
+    <li v-bind:key="todo.id" v-for="todo in allTodos">
       {{ todo.name }}
-      <span v-on:click.stop="removeTodo(todo.id)" class="close">X</span>
     </li>
   </ul>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   data() {
     return {
       msg: "",
-      todoList: [], //DB와 연결해서 todoList
     };
   },
-  mounted() {
-    axios({
-      method: "get",
-      url: "http://localhost:3000/todoList",
-    }).then((result) => {
-      this.todoList = result.data;
-      console.log(this.todoList);
-    });
+  computed: {
+    allTodos() {
+      return this.$store.getters.todoList; //저장소에서 가지고 옴.
+    },
   },
   methods: {
-    checked(no) {
-      //li 클릭시 발생(v-on:click)시 chk가 true가 되어 취소선. html에 작성된  v-bind:class="{ checked: todo.chk }로 css스타일 적용됨.
-      for (let todo of this.todoList) {
-        if (todo.id == no) {
-          todo.chk = !todo.chk; //true&false로 토글
-        }
-      }
+    addNewTodo() {
+      //input태그의 msg를 추가.
+      this.$store.commit("addTodo", this.msg); //store/index.js의 addTodo메소드에 전달.
     },
-    addTodo() {
-      //data에 totoLIst 배열요소가 추가[this.todoList.push()]하는 클릭이벤트!
-      let max_id = this.todoList[this.todoList.length - 1].id; // id값 부여.
-      let todo = { id: max_id + 1, name: this.msg, chk: false }; // id + inputbox 입력값 + chk 디폴드값으로 하나의 배열요소 생성.
-      this.todoList.push(todo); // 배열에 추가.
-    },
-    removeTodo(no) {
-      axios({
-        method: "delete",
-        url: "http://localhost:3000/todo/" + no,
-      })
-        .then((result) => {
-          console.log(result);
-          // 삭제요청의 성공/실패.
-          if (result.data.errno) {
-            alert("처리실패");
-            return;
-          }
-          // 배열에서 제거하기.
-          this.todoList = this.todoList.filter((item) => item.id != no);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+  },
+  mounted() {
+    console.log(this.$store);
+    this.allTodos = this.$store.getters.todoList; //저장소에서 가지고 옴.
+  },
+  updated() {
+    //console.log(updated);
+    console.log(this.$store);
   },
 };
 </script>

@@ -13,11 +13,13 @@ import Nested from "../views/NestedComponent.vue";
 import Parent from "../views/ParentComponent.vue";
 import Parent2 from "../views/ParentComponent2.vue";
 import TodoUseCompo from "../views/TodoListParentComponent.vue";
+import ParentButton from "../views/ParentButton.vue";
+import Vuex from "../views/TodoListVuex.vue";
 
 const routes = [
   //라우터정보
   {
-    path: "/",    
+    path: "/",
     name: "home",
     component: HomeView, //위에 import된 것!
   },
@@ -89,6 +91,16 @@ const routes = [
     path: "/TodoUseCompo",
     name: "TodoUseCompo",
     component: TodoUseCompo,
+  },
+  {
+    path: "/ParentButton",
+    name: "ParentButton",
+    component: ParentButton,
+  },
+  {
+    path: "/Vuex",
+    name: "Vuex",
+    component: Vuex,
   },
 ];
 
