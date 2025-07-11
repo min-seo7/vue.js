@@ -8,7 +8,7 @@
 /*
   File: App.vue
   Content: 루트 컴포넌트 /Header, Footer 레이아웃 적용.
-  Created: 김민서.
+  Created: 000
           Header 수정 : 2025.07.11
   Date: 2025.07.10
 */
