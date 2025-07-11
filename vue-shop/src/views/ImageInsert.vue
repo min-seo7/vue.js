@@ -163,6 +163,11 @@ export default {
     this.getProductImage(); // 이미지 전체목록
   },
   methods: {
+    async deleteImage(id) {
+      //이미지의 아이디(=/=상품아이디)로 삭제함!
+      await this.$api("/api/imageDelete/", { param: [id] }); //alias 찾아서 파라미터로!
+      this.getProductImage();
+    },
     async getProductDetail() {
       let product = await this.$api("/api/productDetail", {
         param: [this.productId],
@@ -173,6 +178,19 @@ export default {
       this.productImage = await this.$api("/api/imageList", {
         param: [this.productId],
       });
+    },
+    async uploadFile(files, type) {
+      let name = files[0].name; //파일이름
+      let data = await this.$base64(files[0]);
+      let result = await this.$api(
+        `/upload/${name}/${this.productId}/${type}`,
+        {
+          data,
+        }
+      );
+      console.log(result);
+      //이미지 리스트 출력.
+      this.getProductImage();
     },
   },
 };

@@ -11,5 +11,15 @@ export default {
       console.log(result);
       return result.data;
     },
+
+    $base64(file) {
+      return new Promise((resolve) => {
+        let fn = new FileReader();
+        fn.onload = (e) => {
+          resolve(e.target.result);
+        };
+        fn.readAsDataURL(file);
+      });
+    },
   },
 };
